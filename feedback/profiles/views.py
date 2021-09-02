@@ -1,5 +1,4 @@
-from django.views.generic.edit import CreateView
-from .models import UserProfile
+from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 
 from .models import UserProfile
@@ -11,6 +10,11 @@ class CreateProfileView(CreateView):
     model = UserProfile
     success_url = '/profile'
 
+
+class ProfilesView(ListView):
+    model = UserProfile
+    template_name = 'profiles/user_profiles.html'
+    context_object_name = 'profiles'
 #
 # class CreateProfileView(View):
 #     def get(self, request):
